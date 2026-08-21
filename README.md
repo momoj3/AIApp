@@ -95,3 +95,22 @@ accent `#8B5CF6`, ฟอนต์ LINE Seed Sans TH (น้ำหนัก 400/7
 
 อย่ารัน `npm run build` ขณะที่ `npm run dev` กำลังทำงานอยู่ — ทั้งสองใช้โฟลเดอร์ `.next` ร่วมกัน
 ตัว build จะเขียนทับทำให้ dev server พัง ถ้าเผลอทำแล้ว ให้หยุด dev server, ลบ `.next`, แล้วรัน `npm run dev` ใหม่
+
+## Deploy (Vercel)
+
+โปรเจกต์ผูกกับ repo นี้ไว้แล้ว — push เข้า `main` = deploy production อัตโนมัติ
+
+**ต้องตั้ง Environment Variable เองก่อนใช้งาน** ที่ Vercel dashboard
+→ Project `ai-app` → Settings → Environment Variables
+
+| Key | Value | Environments |
+|---|---|---|
+| `OPENAI_API_KEY` | คีย์ของคุณ (`sk-...`) | Production, Preview, Development |
+| `OPENAI_MODEL` | `gpt-4o` (ไม่ใส่ก็ได้) | ทั้งหมด |
+
+ถ้ายังไม่ตั้ง หน้าเว็บจะเปิดได้ปกติ แต่กด "เริ่มนับสินค้า" จะขึ้นข้อความว่ายังไม่ได้ตั้งค่า `OPENAI_API_KEY`
+หลังตั้งค่าแล้วต้อง redeploy หนึ่งครั้งเพื่อให้ค่าใหม่มีผล
+
+**หมายเหตุ:** โปรเจกต์เปิด Vercel Authentication ไว้ (`all_except_custom_domains`)
+ทุก URL `.vercel.app` จึงต้องล็อกอินบัญชี Vercel ที่มีสิทธิ์ก่อน ถ้าจะให้พนักงานเปิดได้เลย
+ต้องผูก custom domain หรือปิด protection ที่ Settings → Deployment Protection
