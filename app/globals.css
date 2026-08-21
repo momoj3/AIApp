@@ -1,0 +1,126 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary-50: #f3eff9;
+  --color-primary-100: #e4dbf0;
+  --color-primary-200: #c9b8e1;
+  --color-primary-300: #a992ce;
+  --color-primary-400: #7c57a6;
+  --color-primary-500: #4e2e7f;
+  --color-primary-600: #452970;
+  --color-primary-700: #3e2566;
+  --color-primary-800: #2d1b4e;
+  --color-primary-900: #1e1234;
+
+  --color-secondary: #2d1b4e;
+
+  --color-accent-300: #c4a9fb;
+  --color-accent-400: #a87df8;
+  --color-accent-500: #8b5cf6;
+  --color-accent-600: #7c3aed;
+  --color-accent-700: #6d28d9;
+
+  --color-ink: #1a1720;
+  --color-ink-muted: #6b6675;
+  --color-line: #d8d5de;
+  --color-hairline: #efedf2;
+  --color-shell: #f8f7fa;
+
+  --color-ok: #16a34a;
+  --color-warn: #d97706;
+  --color-bad: #dc2626;
+
+  --font-sans: 'LINE Seed Sans TH', -apple-system, 'Segoe UI', 'Noto Sans Thai', sans-serif;
+}
+
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f8f7fa;
+  --color-border: #d8d5de;
+  --color-text: #1a1720;
+  --color-text-muted: #6b6675;
+  --color-brand: #4e2e7f;
+  --color-on-brand: #ffffff;
+  --focus-ring: 0 0 0 4px rgb(139 92 246 / 0.45);
+}
+
+:root[data-theme='dark'] {
+  --color-bg: #1e1234;
+  --color-surface: #2d1b4e;
+  --color-border: #443265;
+  --color-text: #f8f7fa;
+  --color-text-muted: #b9b2c7;
+  --color-brand: #a87df8;
+  --color-on-brand: #1e1234;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --color-bg: #1e1234;
+    --color-surface: #2d1b4e;
+    --color-border: #443265;
+    --color-text: #f8f7fa;
+    --color-text-muted: #b9b2c7;
+    --color-brand: #a87df8;
+    --color-on-brand: #1e1234;
+  }
+}
+
+html {
+  /* ฐานตัวอักษรใหญ่กว่าปกติ เพราะกลุ่มผู้ใช้อ่านตัวเล็กลำบาก */
+  font-size: 18px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.7;
+  margin: 0;
+  overscroll-behavior-y: contain;
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* ปุ่มทั้งหมดต้องกดง่ายด้วยนิ้วโป้ง */
+button {
+  font-family: inherit;
+  touch-action: manipulation;
+}
+
+@utility surface {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgb(45 27 78 / 0.08);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   ฟอนต์หลักตาม CI: LINE Seed Sans TH
+   ไม่มีบน Google Fonts จึงต้อง self-host — วางไฟล์ .woff2 ใน public/fonts/
+   แล้วเอาคอมเมนต์ 3 บล็อกนี้ออก (ดู public/fonts/README.md)
+   ───────────────────────────────────────────────────────────── */
+/*
+@font-face {
+  font-family: 'LINE Seed Sans TH';
+  src: url('/fonts/LINESeedSansTH_W400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'LINE Seed Sans TH';
+  src: url('/fonts/LINESeedSansTH_W700.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'LINE Seed Sans TH';
+  src: url('/fonts/LINESeedSansTH_W800.woff2') format('woff2');
+  font-weight: 800;
+  font-display: swap;
+}
+*/

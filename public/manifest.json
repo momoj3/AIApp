@@ -1,0 +1,15 @@
+{
+  "name": "นับสินค้าด้วยกล้อง",
+  "short_name": "นับสินค้า",
+  "description": "ถ่ายรูปสินค้าแล้วให้ AI นับจำนวนให้ พร้อมเก็บประวัติการนับในเครื่อง",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#4E2E7F",
+  "lang": "th",
+  "icons": [
+    { "src": "/icon-192.svg", "sizes": "192x192", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icon-512.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

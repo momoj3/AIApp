@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+.env
+.env.local
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+
+# การตั้งค่าเฉพาะเครื่อง / เอกสาร CI ภายใน — ไม่ต้องขึ้น GitHub
+.claude/
